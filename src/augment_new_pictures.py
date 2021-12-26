@@ -1,5 +1,7 @@
-import cv2
 import logging
+from pathlib import Path
+
+import cv2
 import numpy as np
 
 logging.basicConfig(level=logging.INFO)
@@ -13,6 +15,11 @@ def _make_picture(image_name: str, image_path: str = "./data/", augment: bool = 
     """
     logging.info('Start making picture by using camera')
     cap = cv2.VideoCapture(0)
+
+    # check if folder exists, if not create a new one
+    if not Path(image_path).is_dir():
+        logging.info(f'Folder {image_path} does not exist. Creating new folder with this name.')
+        Path(image_path).mkdir()
 
     # Check whether user selected camera is opened successfully.
     if not (cap.isOpened()):
@@ -28,7 +35,7 @@ def _make_picture(image_name: str, image_path: str = "./data/", augment: bool = 
 
     if augment:
         logging.info('Start augmenting images')
-        _augment_image(frame, image_name + '_aug')
+        _augment_image(frame, image_name + '_aug', image_path=image_path)
 
 
 def _augment_image(image, image_name, image_path="./data/") -> None:
