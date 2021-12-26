@@ -21,7 +21,7 @@ def _make_picture(image_name: str, image_path: str = ".", augment=False):
         # get frame
         ret, frame = cap.read()
         # resize image
-        frame = cv2.resize(frame, [1024, 1024])
+        frame = cv2.resize(frame, [128, 128])
         # Display the resulting frame
         cv2.imwrite(f"{image_path}/{image_name}.jpg", frame)
         logging.info(f"Stored picture {image_name} in {image_path}")
