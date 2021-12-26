@@ -27,6 +27,7 @@ def _make_picture(image_name: str, image_path: str = ".", augment=False):
         logging.info(f"Stored picture {image_name} in {image_path}")
 
     if augment:
+        logging.info('Start augmenting images')
         _augment_image(frame, image_name + '_aug')
 
 
@@ -93,5 +94,8 @@ def _add_noise(image, method='gaussian', sp_amount=0.01):
         n_i = n_i + max_pix
         # make sure no element is greater than 255
         n_i = np.fmin(n_i, 255)
+
+    else:
+        raise NotImplementedError('Please make sure to use only implemented methods for adding noise')
 
     return n_i
