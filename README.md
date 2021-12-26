@@ -1,3 +1,4 @@
 ### Installation steps
 
-1) install opencv with `sudo apt-get install python3-opencv`
+1) Install pipenv 
+2) Use pipfile to install all necessary packages
