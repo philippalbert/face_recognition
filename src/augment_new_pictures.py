@@ -5,7 +5,7 @@ import numpy as np
 logging.basicConfig(level=logging.INFO)
 
 
-def _make_picture(image_name: str, image_path: str = ".", augment=False):
+def _make_picture(image_name: str, image_path: str = "./data/", augment: bool = False) -> None:
     """Make picture and store it in specified folder
 
     :param image_name: Name of image
@@ -31,7 +31,7 @@ def _make_picture(image_name: str, image_path: str = ".", augment=False):
         _augment_image(frame, image_name + '_aug')
 
 
-def _augment_image(image, image_name, image_path="."):
+def _augment_image(image, image_name, image_path="./data/") -> None:
     """Apply augmentation on image"""
     # horizontal flip
     cv2.imwrite(f"{image_path}/{image_name}_hor_flip.jpg", cv2.flip(image, 1))
