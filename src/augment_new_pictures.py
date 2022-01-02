@@ -60,7 +60,7 @@ def _augment_image(image, image_name, image_path="./data/") -> None:
     cv2.imwrite(f"{image_path}/{image_name}_salt_pepper_noise.jpg", noisy_image)
 
 
-def _add_noise(image, method='gaussian', sp_amount=0.01):
+def _add_noise(image, method='gaussian', sp_amount=0.01) -> np.ndarray:
     """Add noise to a picture
 
     :Note:
