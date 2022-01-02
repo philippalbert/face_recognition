@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 opencv-python = "*"
+tensorflow = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
